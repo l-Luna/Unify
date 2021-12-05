@@ -1,0 +1,114 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="400"
+        x:Class="Unify.MainWindow"
+        Title="Unify"
+		Width="650" Height="400">
+
+	<!--TransparencyLevelHint="AcrylicBlur"
+        Background="Transparent"
+		ExtendClientAreaToDecorationsHint ="True"-->
+
+	<Panel Background="LightGray">
+		<!--<ExperimentalAcrylicBorder IsHitTestVisible="False">
+			<ExperimentalAcrylicBorder.Material>
+				<ExperimentalAcrylicMaterial
+					BackgroundSource="Digger"
+					TintColor="Black"
+					TintOpacity="1" />
+			</ExperimentalAcrylicBorder.Material>
+		</ExperimentalAcrylicBorder>-->
+
+		<StackPanel Spacing="14" Margin="10">
+			
+			<!-- Menu bar 
+			<Panel>
+				<TextBlock HorizontalAlignment="Center" Margin="7">
+					Unify
+				</TextBlock>
+			</Panel> -->
+
+			<Panel>
+				<Button HorizontalAlignment="Center" Background="LightGreen" Click="InstallQuintessential">
+					<TextBlock FontSize="16">
+						Get and install Quintessential
+					</TextBlock>
+				</Button>
+			</Panel>
+
+			<TextBlock FontWeight="600">
+				Options:
+			</TextBlock>
+
+			<StackPanel Orientation="Horizontal" Spacing="10">
+				<TextBlock VerticalAlignment="Center">Opus Magnum executable:</TextBlock>
+
+				<TextBox MaxWidth="400" Name="OMFolder">
+					C:\Program Files (x86)\Steam\steamapps\common\Opus Magnum\Lightning.exe
+				</TextBox>
+
+				<Button Name="OMFolderSelectBtn" Click="OMFolderSelect">...</Button>
+			</StackPanel>
+
+			<StackPanel Spacing="4">
+				<StackPanel Orientation="Horizontal" Spacing="10">
+					<TextBlock VerticalAlignment="Center">Quintessential Version:</TextBlock>
+
+					<ComboBox SelectedIndex="0" Name="QuintessentialVersionPicker" IsEnabled="{Binding !#ExistingQuintessentialCheck.IsChecked}">
+						<ComboBoxItem>(Loading)</ComboBoxItem>
+					</ComboBox>
+				</StackPanel>
+
+				<StackPanel Orientation="Horizontal" Spacing="10">
+					<CheckBox Name="ExistingQuintessentialCheck">
+						Use existing Quintessential:
+					</CheckBox>
+
+					<TextBox MaxWidth="350" Name="QuintessentialFile" IsEnabled="{Binding #ExistingQuintessentialCheck.IsChecked}" />
+					<Button Name="QuintessentialFileSelectBtn" Click="QuintessentialFileSelect" Content="..." IsEnabled="{Binding #ExistingQuintessentialCheck.IsChecked}" />
+				</StackPanel>
+			</StackPanel>
+
+			<StackPanel Spacing="4">
+				<StackPanel Orientation="Horizontal" Spacing="10">
+					<TextBlock VerticalAlignment="Center">MonoMod Version:</TextBlock>
+
+					<ComboBox SelectedIndex="0" Name="MonoModVersionPicker" IsEnabled="{Binding !#ExistingMonoModCheck.IsChecked}">
+						<ComboBoxItem>(Loading)</ComboBoxItem>
+					</ComboBox>
+				</StackPanel>
+
+				<StackPanel Orientation="Horizontal" Spacing="10">
+					<CheckBox Name="ExistingMonoModCheck">
+						Use existing MonoMod:
+					</CheckBox>
+
+					<TextBox MaxWidth="350" Name="MonoModFile" IsEnabled="{Binding #ExistingMonoModCheck.IsChecked}" />
+					<Button Name="MonoModFileSelectBtn" Click="MonoModFileSelect" IsEnabled="{Binding #ExistingMonoModCheck.IsChecked}">...</Button>
+				</StackPanel>
+			</StackPanel>
+
+			<StackPanel Spacing="4">
+				<StackPanel Orientation="Horizontal" Spacing="10">
+					<TextBlock VerticalAlignment="Center">Opus Mutatum Version:</TextBlock>
+
+					<ComboBox SelectedIndex="0" Name="OpusMutatumVersionPicker" IsEnabled="{Binding !#ExistingOpusMutatumCheck.IsChecked}">
+						<ComboBoxItem>(Loading)</ComboBoxItem>
+					</ComboBox>
+				</StackPanel>
+
+				<StackPanel Orientation="Horizontal" Spacing="10">
+					<CheckBox Name="ExistingOpusMutatumCheck">
+						Use existing Opus Mutatum:
+					</CheckBox>
+
+					<TextBox MaxWidth="350" Name="OpusMutatumFile" IsEnabled="{Binding #ExistingOpusMutatumCheck.IsChecked}" />
+					<Button Name="OpusMutatumFileSelectBtn" Click="OpusMutatumFileSelect" IsEnabled="{Binding #ExistingOpusMutatumCheck.IsChecked}">...</Button>
+				</StackPanel>
+			</StackPanel>
+			
+		</StackPanel>
+	</Panel>
+</Window>
